@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>NeighborHoods Maps</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> 
+	<link rel="stylesheet" href="style/styles.css">
+	<link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+<div class="container">
+<aside id="sidebar">
+      <br>
+      <input id="show-listings" type="button" value="Show Listings" data-bind="click: showListings">
+      <input id="hide-listings" type="button" value="Hide Listings" data-bind="click: hideListings">
+      <br>
+      <button data-bind="click: clickFilter" class="btn btn-info">The Wonders</button>
+      <div data-bind="visible: visibleFilter" class="options-box">
+        <div>
+          <input class="col-xs-12" id="filter-text" data-bind="textInput: filter" placeholder="Search here...">
+          <ul data-bind="foreach: locations">
+            <li data-bind="text: title, click: $parent.get_info_window"></li>
+          </ul>
+          <input class="btn btn-success" id="filter" data-bind="click: filter_data" type="button" value="Search" style="
+            margin-top:  10px;
+            margin-left: 15px;">
+        </div>
+
+      </div>  
+      </aside>
+ <main id="map"></main>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="script/_P_.js"></script>
+	<script
+        src="https://maps.googleapis.com/maps/api/js?key=&v=3&callback=init" async defer onerror="mapError()">
+    </script>
+
+</body>
+</html>
